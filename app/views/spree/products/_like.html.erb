@@ -1,6 +1,6 @@
   <div class="product-likes" data-hook="product-likes">
 
-  <% if current_spree_user %>
+  <% unless current_spree_user %>
     <%= pluralize(@product.likes_count, t('spree_product_like.likes.like')) %>
 
   <% else %>
