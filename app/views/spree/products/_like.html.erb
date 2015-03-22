@@ -6,11 +6,11 @@
   <% else %>
     <% if @product.liked_by?(current_spree_user) %>
       <div data-hook="product-dislike-button">
-        <%= button_to @product.likes_count, unlike_product_path(id: @product.id), id: 'like-button', class: 'button dislike', title: t('spree_product_like.likes.unlike'), type: :submit, method: :delete %>
+        <%= button_to @product.likes_count, unlike_product_path(id: @product.id, format: :js), id: 'like-button', class: 'button dislike', title: t('spree_product_like.likes.unlike'), type: :submit, method: :delete, remote: true %>
       </div>
     <% else %>
       <div data-hook="product-like-button">
-        <%= button_to @product.likes_count, like_product_path(id: @product.id), id: 'like-button', class: 'button like', title: t('spree_product_like.likes.like'), type: :submit %>
+        <%= button_to @product.likes_count, like_product_path(id: @product.id, format: :js), id: 'like-button', class: 'button like', title: t('spree_product_like.likes.like'), type: :submit, remote: true %>
       </div>
     <% end %>
   <% end %>
